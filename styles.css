@@ -38,9 +38,43 @@
   border-radius: 0.25em;
   position: relative;
   cursor: pointer;
+
+  transition: transform 250ms ease-in-out;
+  -webkit-transition: -webkit-transform 250ms ease-in-out;
+  -moz-transition: -moz-transform 250ms ease-in-out;
 }
 
-.toast::after {
+.toast-container[data-position$="-right"] .toast {
+  transform: translate(110%, 0);
+  -webkit-transform: translate(110%, 0);
+  -moz-transform: translate(110%, 0);
+}
+
+.toast-container[data-position$="-left"] .toast {
+  transform: translate(-110%, 0);
+  -webkit-transform: translate(-110%, 0);
+  -moz-transform: translate(-110%, 0);
+}
+
+.toast-container[data-position="top-center"] .toast {
+  transform: translate(0, -110vh);
+  -webkit-transform: translate(0, -110vh);
+  -moz-transform: translate(0, -110vh);
+}
+
+.toast-container[data-position="bottom-center"] .toast {
+  transform: translate(0, 110vh);
+  -webkit-transform: translate(0, 110vh);
+  -moz-transform: translate(0, 110vh);
+}
+
+.toast-container .toast.show {
+  transform: translate(0, 0);
+  -webkit-transform: translate(0, 0);
+  -moz-transform: translate(0, 0);
+}
+
+.toast.can-close::after {
   content: "\00D7";
   position: absolute;
   top: 2px;
