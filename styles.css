@@ -1,29 +1,15 @@
-.toast {
-  box-sizing: border-box;
-  padding: 1rem;
-  background-color: white;
-  border: 1px solid #333;
-  border-radius: 0.25em;
-  position: relative;
-  width: 250px;
-}
-
-.toast::after {
-  content: "\00D7";
-  position: absolute;
-  top: 2px;
-  right: 5px;
-}
-
 .toast-container {
   margin: 10px;
   position: fixed;
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
 /* ^ starts with */
 .toast-container[data-position^="top-"] {
   top: 0;
-  right: 0;
 }
 
 .toast-container[data-position^="bottom-"] {
@@ -37,4 +23,26 @@
 
 .toast-container[data-position$="-left"] {
   left: 0;
+}
+
+.toast-container[data-position$="-center"] {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.toast {
+  box-sizing: border-box;
+  padding: 0.75rem;
+  background-color: white;
+  border: 1px solid #333;
+  border-radius: 0.25em;
+  position: relative;
+  cursor: pointer;
+}
+
+.toast::after {
+  content: "\00D7";
+  position: absolute;
+  top: 2px;
+  right: 5px;
 }
